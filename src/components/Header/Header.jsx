@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../styled/Container.styled";
+import { Container } from "../../styled/Container.styled";
 
 import styled from "styled-components";
 
@@ -20,6 +20,7 @@ const HeaderStyled = styled.div`
     font-size: 36px;
     color: #ffffff;
     gap: 15px;
+    text-transform: uppercase;
   }
   .lang {
     position: absolute;
@@ -34,7 +35,7 @@ function Header() {
         <HeaderStyled>
           <div className="logo">
             <img src="./img/logo.svg" alt="" className="logo__img" />
-            IFEREUM
+            Ifereum
           </div>
           <div className="lang">
             <img src="./img/lang.svg" alt="" className="lang__img" />

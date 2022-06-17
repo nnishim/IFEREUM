@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Container } from "../styled/Container.styled";
+import { Container } from "../../styled/Container.styled";
 
 const HeroStyled = styled.div`
   position: relative;

@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+@font-face {
+  font-family: "Rany";
+  src: url("./Rany.otf") format("otf");
+}
+@font-face {
+  font-family: "Rany-Bold";
+  src: url("./Rany-Bold.otf") format("otf");
+  font-weight: bold;
+}

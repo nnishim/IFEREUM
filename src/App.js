@@ -1,6 +1,8 @@
 import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
+import Benefits from './components/Benefits/Benefits';
+import Cards from './components/Cards/Cards';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
 import { Wrapper } from './styled/Wrapper.styled';
 
 function App() {
@@ -9,6 +11,8 @@ function App() {
       <Wrapper>
         <Header />
         <Hero/>
+        <Benefits/>
+        <Cards/>
       </Wrapper>
     </>
   );
