@@ -4,6 +4,7 @@ import { Container } from "../../styled/Container.styled";
 import { Title } from "../../styled/Title.styled";
 
 const CardsStyled = styled.div`
+  margin-bottom: 100px;
   .cards {
     &__content {
       display: flex;
@@ -35,7 +36,7 @@ const CardsStyled = styled.div`
   }
   .card {
     max-width: 320px;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
     background: #171717;
     box-shadow: 0px 167px 67px rgba(0, 0, 0, 0.02),
       0px 94px 56px rgba(0, 0, 0, 0.06), 0px 42px 42px rgba(0, 0, 0, 0.1),
@@ -43,14 +44,22 @@ const CardsStyled = styled.div`
     border-radius: 10px;
     &__top {
       display: flex;
-      align-items: center;
-      gap: 40px;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
     }
     &__num {
       font-family: "Rany";
       font-weight: 700;
       font-size: 128px;
       color: #ffee2d;
+      &-block{
+        height: 92px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     &__text {
       font-family: "Raleway";
@@ -103,7 +112,9 @@ function Cards() {
             <div className="cards__block">
               <div className="card">
                 <div className="card__top">
-                  <h1 className="card__num">1</h1>
+                  <div className="card__num-block">
+                    <h1 className="card__num">1</h1>
+                  </div>
                   <span className="card__text">
                     The fastest and most secure Blockchain
                   </span>
@@ -125,7 +136,9 @@ function Cards() {
               </div>
               <div className="card">
                 <div className="card__top">
-                  <h1 className="card__num">2</h1>
+                  <div className="card__num-block">
+                    <h1 className="card__num">2</h1>
+                  </div>
                   <span className="card__text">
                     New generation of Smart Contracts
                   </span>
@@ -147,7 +160,9 @@ function Cards() {
               </div>
               <div className="card">
                 <div className="card__top">
-                  <h1 className="card__num">3</h1>
+                  <div className="card__num-block">
+                    <h1 className="card__num">3</h1>
+                  </div>
                   <span className="card__text">Decentralized Internet</span>
                 </div>
                 <p className="card__desc">
@@ -167,7 +182,9 @@ function Cards() {
               </div>
               <div className="card">
                 <div className="card__top">
-                  <h1 className="card__num">4</h1>
+                  <div className="card__num-block">
+                    <h1 className="card__num">4</h1>
+                  </div>
                   <span className="card__text">
                     IFEREUM network exchange asset
                   </span>

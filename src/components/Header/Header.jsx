@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "../../styled/Container.styled";
 
 import styled from "styled-components";
+import { useState } from "react";
 
 const HeaderStyled = styled.div`
   display: flex;
@@ -23,12 +24,22 @@ const HeaderStyled = styled.div`
     text-transform: uppercase;
   }
   .lang {
-    position: absolute;
-    right: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &__block {
+      position: absolute;
+      right: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
   }
 `;
 
 function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <Container>
@@ -37,8 +48,34 @@ function Header() {
             <img src="./img/logo.svg" alt="" className="logo__img" />
             Ifereum
           </div>
-          <div className="lang">
-            <img src="./img/lang.svg" alt="" className="lang__img" />
+          <div className="lang__block">
+          <div className="lang__icons">
+              <img src="./img/lang.svg" alt="" className="lang__img" />
+              {open && (
+                <div className="dropdown">
+                  <a href="#" className="lang__link">
+                    <img src="./img/russia.png" alt="" className="lang__img" />
+                  </a>
+                </div>
+              )}
+            </div>
+            <button className="lang" onClick={() => setOpen(!open)}>
+              {open ? (
+                <img
+                  src="./img/arrow-bottom.svg"
+                  alt=""
+                  className="arrow-bottom"
+                  style={{ transform: "rotate(180deg)" }}
+                />
+              ) : (
+                <img
+                  src="./img/arrow-bottom.svg"
+                  alt=""
+                  className="arrow-bottom"
+                />
+              )}
+            </button>
+            
           </div>
         </HeaderStyled>
       </Container>
