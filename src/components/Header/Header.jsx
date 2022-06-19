@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../../styled/Container.styled";
+import { motion, AnimatePresence } from "framer-motion";
 
 import styled from "styled-components";
 import { useState } from "react";
@@ -27,11 +28,12 @@ const HeaderStyled = styled.div`
     background: transparent;
     border: none;
     cursor: pointer;
+    margin-top: -10px;
     &__block {
       position: absolute;
       right: 0;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 10px;
     }
   }
@@ -49,15 +51,30 @@ function Header() {
             Ifereum
           </div>
           <div className="lang__block">
-          <div className="lang__icons">
+            <div className="lang__icons">
               <img src="./img/lang.svg" alt="" className="lang__img" />
-              {open && (
-                <div className="dropdown">
-                  <a href="#" className="lang__link">
-                    <img src="./img/russia.png" alt="" className="lang__img" />
-                  </a>
-                </div>
-              )}
+              <AnimatePresence initial={false}>
+                {open && (
+                  <motion.div
+                    initial={{
+                      height: 0,
+                    }}
+                    animate={{
+                      height: "auto",
+                      transition: { duration: .4 },
+                    }}
+                    exit={{
+                      height: 0,  
+                    }}
+                    style={{ overflow: "hidden" }}
+                    className="dropdown"
+                  >
+                    <a href="#" className="lang__link">
+                      <img src="./img/russia.png" alt="" className="lang__img" />
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             <button className="lang" onClick={() => setOpen(!open)}>
               {open ? (
@@ -75,7 +92,6 @@ function Header() {
                 />
               )}
             </button>
-            
           </div>
         </HeaderStyled>
       </Container>

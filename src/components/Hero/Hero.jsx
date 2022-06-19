@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Container } from "../../styled/Container.styled";
+import { motion } from "framer-motion";
+
 
 const HeroStyled = styled.div`
   position: relative;
@@ -77,6 +79,19 @@ const HeroStyled = styled.div`
     }
   }
 `;
+
+const variants = {
+  offscreen: {
+    scale: 0,
+  },
+  onscreen: {
+    scale: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+    },
+  },
+};
 
 function Hero() {
   return (
@@ -166,22 +181,26 @@ function Hero() {
           </div>
         </div>
         <Container>
-          <div className="hero__content">
-            <h1 className="hero__title">
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            className="hero__content">
+            <motion.h1 className="hero__title" variants={variants}>
               <span className="hero__title--yellow">The First DEX on BNB</span>{" "}
               Chain with a three-type referal system
-            </h1>
-            <p className="hero__desc">
+            </motion.h1>
+            <motion.p className="hero__desc" variants={variants}>
               Enjoy profitable yield farming and exchanging with the lowest fees
               in DeFi space
-            </p>
-            <div className="hero__button-block">
+            </motion.p>
+            <motion.div className="hero__button-block" variants={variants}>
               <a href="#" className="hero__btn">
                 Trade Now
                 <img src="./img/arrow.svg" alt="" className="hero__arrow" />
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </Container>
       </HeroStyled>
     </>

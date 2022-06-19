@@ -2,6 +2,8 @@ import React from "react";
 import { Container } from "../../styled/Container.styled";
 import { Title } from "../../styled/Title.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+
 
 import "swiper/css";
 import styled from "styled-components";
@@ -54,6 +56,19 @@ const SliderStyled = styled.div`
   }
 `;
 
+const variants = {
+  offscreen: {
+    scale: 0,
+  },
+  onscreen: {
+    scale: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+    },
+  },
+};
+
 function Slider() {
   return (
     <>
@@ -68,160 +83,176 @@ function Slider() {
           >
             Project Roadmap
           </Title>
-          <div className="slider__content">
+          <motion.div 
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            className="slider__content">
             <Swiper slidesPerView={3} spaceBetween={165} className="mySwiper">
               <SwiperSlide>
-                <h2 className="slide__date">2017-2018</h2>
-                <ul className="slide__list">
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    TraceChain development
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Public release of the project
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Registration in Switzerland
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Mainnet activation
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Forging tests
-                  </li>
-                </ul>
+                <motion.div className="slide" variants={variants}>
+                  <h2 className="slide__date">2017-2018</h2>
+                  <ul className="slide__list">
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      TraceChain development
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Public release of the project
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Registration in Switzerland
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Mainnet activation
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Forging tests
+                    </li>
+                  </ul>
+                </motion.div>
               </SwiperSlide>
               <SwiperSlide>
-                <h2 className="slide__date">2019</h2>
-                <ul className="slide__list">
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    TraceChain development
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Public release of the project
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Registration in Switzerland
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Mainnet activation
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Forging tests
-                  </li>
-                </ul>
+                <motion.div className="slide" variants={variants}>
+                  <h2 className="slide__date">2019</h2>
+                  <ul className="slide__list">
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      TraceChain development
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Public release of the project
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Registration in Switzerland
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Mainnet activation
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Forging tests
+                    </li>
+                  </ul>
+                </motion.div>
               </SwiperSlide>
               <SwiperSlide>
-                <h2 className="slide__date">2020</h2>
-                <ul className="slide__list">
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    TraceChain development
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Public release of the project
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Registration in Switzerland
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Mainnet activation
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Forging tests
-                  </li>
-                </ul>
+                <motion.div className="slide" variants={variants}>
+                  <h2 className="slide__date">2020</h2>
+                  <ul className="slide__list">
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      TraceChain development
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Public release of the project
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Registration in Switzerland
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Mainnet activation
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Forging tests
+                    </li>
+                  </ul>
+                </motion.div>
               </SwiperSlide>
               <SwiperSlide>
-                <h2 className="slide__date">2021</h2>
-                <ul className="slide__list">
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    TraceChain development
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Public release of the project
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Registration in Switzerland
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Mainnet activation
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Forging tests
-                  </li>
-                </ul>
+                <motion.div className="slide" variants={variants}>
+                  <h2 className="slide__date">2021</h2>
+                  <ul className="slide__list">
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      TraceChain development
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Public release of the project
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Registration in Switzerland
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Mainnet activation
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Forging tests
+                    </li>
+                  </ul>
+                </motion.div>
               </SwiperSlide>
               <SwiperSlide>
-                <h2 className="slide__date">2022</h2>
-                <ul className="slide__list">
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    TraceChain development
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Public release of the project
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Registration in Switzerland
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Mainnet activation
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Forging tests
-                  </li>
-                </ul>
+                <motion.div className="slide" variants={variants}>
+                  <h2 className="slide__date">2022</h2>
+                  <ul className="slide__list">
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      TraceChain development
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Public release of the project
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Registration in Switzerland
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Mainnet activation
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Forging tests
+                    </li>
+                  </ul>
+                </motion.div>
               </SwiperSlide>
               <SwiperSlide>
-                <h2 className="slide__date">2023</h2>
-                <ul className="slide__list">
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    TraceChain development
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Public release of the project
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Registration in Switzerland
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Mainnet activation
-                  </li>
-                  <li className="slide__list-item">
-                    <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
-                    Forging tests
-                  </li>
-                </ul>
+                <motion.div className="slide" variants={variants}>
+                  <h2 className="slide__date">2023</h2>
+                  <ul className="slide__list">
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      TraceChain development
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Public release of the project
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Registration in Switzerland
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Mainnet activation
+                    </li>
+                    <li className="slide__list-item">
+                      <img src="./img/slide-icon.svg" alt="" className="slide__icon" />
+                      Forging tests
+                    </li>
+                  </ul>
+                </motion.div>
               </SwiperSlide>
             </Swiper>
-          </div>
+          </motion.div>
         </Container>
       </SliderStyled>
     </>

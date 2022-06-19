@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Container } from "../../styled/Container.styled";
 import { Title } from "../../styled/Title.styled";
+import { motion } from "framer-motion";
 
 const BenefitsStyled = styled.div`
   margin-bottom: 100px;
@@ -47,6 +48,19 @@ const BenefitsStyled = styled.div`
   }
 `;
 
+const variants = {
+  offscreen: {
+    scale: 0,
+  },
+  onscreen: {
+    scale: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+    },
+  },
+};
+
 function Benefits() {
   return (
     <>
@@ -54,8 +68,13 @@ function Benefits() {
         <Container>
           <Title style={{ marginBottom: "60px" }}>Our Benefits</Title>
           <div className="benefits__content">
-            <div className="benefits__info">
-              <div className="benefits__info-item">
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              className="benefits__info"
+            >
+              <motion.div variants={variants} className="benefits__info-item">
                 <div className="benefits__item-iblock">
                   <img
                     src="./img/benefits-icon1.svg"
@@ -69,8 +88,8 @@ function Benefits() {
                   time they make a swap on Ifereum and 5% from their income in
                   Farms & Launchpools.
                 </p>
-              </div>
-              <div className="benefits__info-item">
+              </motion.div>
+              <motion.div variants={variants} className="benefits__info-item">
                 <div className="benefits__item-iblock">
                   <img
                     src="./img/benefits-icon2.svg"
@@ -85,8 +104,8 @@ function Benefits() {
                   Safely buy and sell your cryptocurrency with the lowest
                   exchange fee in the DeFi space.
                 </p>
-              </div>
-              <div className="benefits__info-item">
+              </motion.div>
+              <motion.div variants={variants} className="benefits__info-item">
                 <div className="benefits__item-iblock">
                   <img
                     src="./img/benefits-icon3.svg"
@@ -101,8 +120,8 @@ function Benefits() {
                   Make a swap on Ifereum at no cost. Up to 90% of the trading
                   fee returned in BSW tokens.
                 </p>
-              </div>
-              <div className="benefits__info-item">
+              </motion.div>
+              <motion.div variants={variants} className="benefits__info-item">
                 <div className="benefits__item-iblock">
                   <img
                     src="./img/benefits-icon4.svg"
@@ -115,15 +134,21 @@ function Benefits() {
                   Participate in the regular Ifereum trading competitions and
                   win exclusive prizes.
                 </p>
-              </div>
-            </div>
-            <div className="benefits__img-block">
-              <img
+              </motion.div>
+            </motion.div>
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              className="benefits__img-block"
+            >
+              <motion.img
+                variants={variants}
                 src="./img/benefits-img.svg"
                 alt=""
                 className="benefits__img"
               />
-            </div>
+            </motion.div>
           </div>
         </Container>
       </BenefitsStyled>

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Container } from "../../styled/Container.styled";
 import { Title } from "../../styled/Title.styled";
+import { motion } from "framer-motion";
+
 
 const CardsStyled = styled.div`
   margin-bottom: 100px;
@@ -91,13 +93,30 @@ const CardsStyled = styled.div`
   }
 `;
 
+const variants = {
+  offscreen: {
+    scale: 0,
+  },
+  onscreen: {
+    scale: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+    },
+  },
+};
+
 function Cards() {
   return (
     <>
       <CardsStyled>
         <Container>
-          <div className="cards__content">
-            <div className="cards__info">
+          <motion.div 
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            className="cards__content" >
+            <motion.div variants={variants} className="cards__info">
               <Title style={{ marginBottom: "30px" }}>What is IFEREUM</Title>
               <p className="cards__info-desc">
                 IFEREUM is a next-generation network based on the Blockchain 4.0
@@ -108,9 +127,9 @@ function Cards() {
               <span className="cards__info-text">
                 Four components of the system:
               </span>
-            </div>
+            </motion.div>
             <div className="cards__block">
-              <div className="card">
+              <motion.div variants={variants} className="card">
                 <div className="card__top">
                   <div className="card__num-block">
                     <h1 className="card__num">1</h1>
@@ -133,8 +152,8 @@ function Cards() {
                     />
                   </a>
                 </div>
-              </div>
-              <div className="card">
+              </motion.div>
+              <motion.div variants={variants} className="card">
                 <div className="card__top">
                   <div className="card__num-block">
                     <h1 className="card__num">2</h1>
@@ -157,8 +176,8 @@ function Cards() {
                     />
                   </a>
                 </div>
-              </div>
-              <div className="card">
+              </motion.div>
+              <motion.div variants={variants} className="card">
                 <div className="card__top">
                   <div className="card__num-block">
                     <h1 className="card__num">3</h1>
@@ -179,8 +198,8 @@ function Cards() {
                     />
                   </a>
                 </div>
-              </div>
-              <div className="card">
+              </motion.div>
+              <motion.div variants={variants} className="card">
                 <div className="card__top">
                   <div className="card__num-block">
                     <h1 className="card__num">4</h1>
@@ -203,9 +222,9 @@ function Cards() {
                     />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </Container>
       </CardsStyled>
     </>
